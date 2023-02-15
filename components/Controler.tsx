@@ -1,6 +1,6 @@
 type Props = {
     wireframeChecked?: boolean,
-    setWireframeChecked?: Function
+    setWireframeChecked?: any
 }
 
 const Controller = ({wireframeChecked, setWireframeChecked}:Props) => {
