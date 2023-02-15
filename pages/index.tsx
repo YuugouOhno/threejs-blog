@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         <Box position={[-4, 1, 0]} setSelectedPost={setSelectedPost} selectedPost={selectedPost} Id="box3" />
         <OrbitControls />
       </Canvas>
-      <Controler setWireframeChecked={setWireframeChecked}/>
+      <Controler wireframeChecked={wireframeChecked} setWireframeChecked={setWireframeChecked}/>
       {selectedPost ? <Post setSelectedPost={setSelectedPost} selectedPost={selectedPost}/>: null}
     </div>
   );

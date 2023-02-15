@@ -1,10 +1,11 @@
 type Props = {
+    wireframeChecked?: boolean,
     setWireframeChecked?: Function
 }
 
-const Controller = ({setWireframeChecked}:Props) => {
+const Controller = ({wireframeChecked, setWireframeChecked}:Props) => {
     const hundleChange = () => {
-        setWireframeChecked(prev =>!prev)
+        setWireframeChecked(!wireframeChecked)
     }
     return (
         <>
