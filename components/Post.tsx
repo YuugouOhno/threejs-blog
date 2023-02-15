@@ -5,7 +5,7 @@ type Props = {
 
 const Post = ({ setSelectedPost, selectedPost }: Props) => {
     const handleClick = () => {
-        setSelectedPost(null);
+        setSelectedPost("");
     };
     return (
         <>

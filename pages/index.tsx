@@ -10,7 +10,7 @@ import { Suspense, useState } from "react";
 
 const Home: NextPage = () => {
   const [wireframeChecked, setWireframeChecked] = useState(false);
-  const [selectedPost, setSelectedPost] = useState(null);
+  const [selectedPost, setSelectedPost] = useState("");
   console.log(wireframeChecked);
   return (
     <div id="canvas-container" className="w-screen h-screen">

@@ -17,14 +17,9 @@ const Model = ({wireframeChecked}:Props) => {
     const obj = useLoader(OBJLoader, "cottage_obj.obj", (loader) => {
         materials.preload();
         loader.setMaterials(materials);
-    });
-    obj.children[4].material.wireframe = wireframeChecked;
-    // obj.children[4].material.alpha = true;
-    // obj.children[4].material.trasparent = true;
-    // // obj.children[4].material.alphaToCoverage = false;
-    // obj.children[4].material.opacity = 0.5;
+    }) as any;
 
-    console.log(obj.children[4].material);
+    obj.children[4].material.wireframe = wireframeChecked;
     return (
         <>
             <ambientLight intensity={0.2} />
