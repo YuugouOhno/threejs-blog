@@ -2,29 +2,30 @@ import type { NextPage } from "next";
 import { Canvas } from "@react-three/fiber";
 import Box from "../components/Box";
 import Model from "../components/Model";
+import Controler from "../components/Controler";
+import Post from "../components/Post";
 import { OrbitControls } from "@react-three/drei";
+import { Suspense, useState } from "react";
 
-import { Suspense } from "react";
 
 const Home: NextPage = () => {
+  const [wireframeChecked, setWireframeChecked] = useState(false);
+  const [selectedPost, setSelectedPost] = useState(null);
+  console.log(wireframeChecked);
   return (
     <div id="canvas-container" className="w-screen h-screen">
-      <Canvas>
+      <Canvas className="w-1/2" camera={{ position: [10, 10, 10] }}>
         {/* <directionalLight color="red" position={[0, 0, 10]} /> */}
         <Suspense fallback={null}>
-          <Model />
+          <Model wireframeChecked={wireframeChecked}/>
         </Suspense>
-        <Box position={[0,2,2]}/>
-        <Box position={[1,1,-2]}/>
-        <Box position={[-4,1,0]}/>
+        <Box position={[0, 2, 2]} setSelectedPost={setSelectedPost} selectedPost={selectedPost} Id="box1" />
+        <Box position={[1, 1, -2]} setSelectedPost={setSelectedPost} selectedPost={selectedPost} Id="box2" />
+        <Box position={[-4, 1, 0]} setSelectedPost={setSelectedPost} selectedPost={selectedPost} Id="box3" />
         <OrbitControls />
       </Canvas>
-
-      <div className="controller">
-      <label>
-        範囲を選択：<input type="range" min="0" max="100"/>
-      </label>
-      </div>
+      <Controler setWireframeChecked={setWireframeChecked}/>
+      {selectedPost ? <Post setSelectedPost={setSelectedPost} selectedPost={selectedPost}/>: null}
     </div>
   );
 };

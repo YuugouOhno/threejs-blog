@@ -3,8 +3,12 @@ import { MTLLoader } from "three/examples/jsm/loaders/MTLLoader";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import { useLoader } from "@react-three/fiber";
 
-// objファイル
-const Model = () => {
+
+type Props = {
+    wireframeChecked?: boolean
+}
+
+const Model = ({wireframeChecked}:Props) => {
     const [colorMap, normalMap] = useLoader(TextureLoader, [
         "cottage_diffuse.png",
         "cottage_normal.png",
@@ -14,10 +18,11 @@ const Model = () => {
         materials.preload();
         loader.setMaterials(materials);
     });
-    // obj.children[4].material.wireframe = true;
-    obj.children[0].material.transportant = true;
-    // obj.children[4].material.alphaToCoverage = false;
-    obj.children[0].material.opacity = 0.5;
+    obj.children[4].material.wireframe = wireframeChecked;
+    // obj.children[4].material.alpha = true;
+    // obj.children[4].material.trasparent = true;
+    // // obj.children[4].material.alphaToCoverage = false;
+    // obj.children[4].material.opacity = 0.5;
 
     console.log(obj.children[4].material);
     return (
