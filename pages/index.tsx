@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
 import { Canvas } from "@react-three/fiber";
 import Box from "../components/Box";
-import Model from "../components/Model";
+import MainModel from "../components/MainModel";
+import SubModel from "../components/SubModel";
 import Controler from "../components/Controler";
 import Post from "../components/Post";
 import { OrbitControls } from "@react-three/drei";
@@ -17,7 +18,8 @@ const Home: NextPage = () => {
       <Canvas className="w-1/2" camera={{ position: [10, 10, 10] }}>
         {/* <directionalLight color="red" position={[0, 0, 10]} /> */}
         <Suspense fallback={null}>
-          <Model wireframeChecked={wireframeChecked}/>
+          <MainModel />
+          <SubModel setSelectedPost={setSelectedPost} Id="subModel" />
         </Suspense>
         <Box position={[0, 2, 2]} setSelectedPost={setSelectedPost} selectedPost={selectedPost} Id="box1" />
         <Box position={[1, 1, -2]} setSelectedPost={setSelectedPost} selectedPost={selectedPost} Id="box2" />
