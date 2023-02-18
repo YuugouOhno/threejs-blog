@@ -4,8 +4,8 @@ import { useLoader } from "@react-three/fiber";
 
 
 const MainModel = () => {
-    const materials = useLoader(MTLLoader, "test3-1.mtl");
-    const obj = useLoader(OBJLoader, "test3-1.obj", (loader) => {
+    const materials = useLoader(MTLLoader, "test5-1.mtl");
+    const obj = useLoader(OBJLoader, "test5-1.obj", (loader) => {
         materials.preload();
         loader.setMaterials(materials);
     }) as any;
@@ -17,7 +17,7 @@ const MainModel = () => {
             <directionalLight />
             <primitive
                 object={obj}
-                scale={1}
+                scale={0.004}
                 opacity={0.5}
             />
         </>

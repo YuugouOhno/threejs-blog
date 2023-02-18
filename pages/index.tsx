@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import Box from "../components/Box";
 import MainModel from "../components/MainModel";
 import SubModel from "../components/SubModel";
+import SubModel2 from "../components/SubModel2";
 import Controler from "../components/Controler";
 import Post from "../components/Post";
 import { OrbitControls } from "@react-three/drei";
@@ -20,13 +21,14 @@ const Home: NextPage = () => {
         <Suspense fallback={null}>
           <MainModel />
           <SubModel setSelectedPost={setSelectedPost} Id="subModel" />
+          <SubModel2 setSelectedPost={setSelectedPost} Id="subModel2" />
         </Suspense>
         <Box position={[0, 2, 2]} setSelectedPost={setSelectedPost} selectedPost={selectedPost} Id="box1" />
         <Box position={[1, 1, -2]} setSelectedPost={setSelectedPost} selectedPost={selectedPost} Id="box2" />
         <Box position={[-4, 1, 0]} setSelectedPost={setSelectedPost} selectedPost={selectedPost} Id="box3" />
         <OrbitControls />
       </Canvas>
-      <Controler wireframeChecked={wireframeChecked} setWireframeChecked={setWireframeChecked}/>
+      {/* <Controler wireframeChecked={wireframeChecked} setWireframeChecked={setWireframeChecked}/> */}
       {selectedPost ? <Post setSelectedPost={setSelectedPost} selectedPost={selectedPost}/>: null}
     </div>
   );

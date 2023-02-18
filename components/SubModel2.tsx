@@ -12,15 +12,15 @@ type Props = {
 }
 
 
-const SubModel = ({ setSelectedPost, Id}:Props) => {
+const SubModel2 = ({ setSelectedPost, Id}:Props) => {
 
     const ref = useRef<any>();
     const handleClick = () => {
         setSelectedPost(Id);
     }
 
-    const materials = useLoader(MTLLoader, "test5-2.mtl");
-    const obj = useLoader(OBJLoader, "test5-2.obj", (loader) => {
+    const materials = useLoader(MTLLoader, "test5-3.mtl");
+    const obj = useLoader(OBJLoader, "test5-3.obj", (loader) => {
         materials.preload();
         loader.setMaterials(materials);
     }) as any;
@@ -42,4 +42,4 @@ const SubModel = ({ setSelectedPost, Id}:Props) => {
     );
 };
 
-export default SubModel;
+export default SubModel2;
